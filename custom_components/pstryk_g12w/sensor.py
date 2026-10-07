@@ -69,20 +69,20 @@ class PstrykSensor(CoordinatorEntity[PstrykCoordinator], SensorEntity):
     def native_value(self) -> float | None:
         data = self.coordinator.data or {}
         desc = self.entity_description
-        if desc.period:
-            if desc.period == "daily_cost" and not data.get("today_cost_available"):
+
+        # Cost descriptions store a scalar; usage and share descriptions store a period dictionary.
+        if desc.currency:
+            is_today = desc.period == "daily_cost" or bool(desc.period and desc.period.startswith("today"))
+            availability_key = "today_cost_available" if is_today else "month_cost_available"
+            if not data.get(availability_key):
                 return None
-            if desc.period == "monthly_cost" and not data.get("month_cost_available"):
-                return None
-            if desc.period.startswith("today_cost_") and not data.get("today_cost_available"):
-                return None
-            if desc.period.startswith("month_cost_") and not data.get("month_cost_available"):
-                return None
-            value = data.get(desc.period)
-            return round(value, 2) if isinstance(value, (int, float)) else None
-        if not data.get("today_available" if desc.period == "today" else "month_available"):
+            value = data.get(desc.period or "")
+            return round(float(value), 2) if isinstance(value, (int, float)) else None
+
+        period = desc.period or "today"
+        if not data.get("today_available" if period == "today" else "month_available"):
             return None
-        values = data.get(desc.period, {})
+        values = data.get(period, {})
         if not isinstance(values, dict):
             return None
         peak = float(values.get("peak", 0))
