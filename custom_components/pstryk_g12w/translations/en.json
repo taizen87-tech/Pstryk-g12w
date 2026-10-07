@@ -1,0 +1,4 @@
+{
+  "config": {"step": {"user": {"title": "Pstryk G12W", "description": "Enter the API key created in the Pstryk app under Account → Devices and integrations.", "data": {"api_key": "API key"}}}, "error": {"invalid_auth": "Invalid API key."}, "abort": {"already_configured": "This meter is already configured."}},
+  "options": {"step": {"init": {"title": "Tariff hours", "description": "Enter peak ranges as HH:MM-HH:MM, separated by commas. The end time is exclusive.", "data": {"weekday_peak": "Weekday peak hours", "weekend_peak": "Weekend peak hours", "holidays_offpeak": "Treat Polish public holidays as off-peak all day"}}}, "error": {"invalid_time_range": "Use HH:MM-HH:MM; separate multiple ranges with commas."}}
+}
