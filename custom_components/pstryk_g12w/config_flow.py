@@ -6,8 +6,13 @@ from homeassistant import config_entries
 from homeassistant.core import callback
 
 from .const import (
-    CONF_API_KEY, CONF_HOLIDAYS, CONF_WEEKDAY_PEAK, CONF_WEEKEND_PEAK,
-    DEFAULT_HOLIDAYS_OFFPEAK, DEFAULT_WEEKDAY_PEAK, DEFAULT_WEEKEND_PEAK,
+    CONF_API_KEY,
+    CONF_HOLIDAYS,
+    CONF_WEEKDAY_PEAK,
+    CONF_WEEKEND_PEAK,
+    DEFAULT_HOLIDAYS_OFFPEAK,
+    DEFAULT_WEEKDAY_PEAK,
+    DEFAULT_WEEKEND_PEAK,
     DOMAIN,
 )
 from .tariff import parse_ranges
@@ -43,12 +48,11 @@ class PstrykConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     @staticmethod
     @callback
     def async_get_options_flow(config_entry):
-        return PstrykOptionsFlow(config_entry)
+        return PstrykOptionsFlow()
 
 
 class PstrykOptionsFlow(config_entries.OptionsFlow):
-    def __init__(self, config_entry):
-        self.config_entry = config_entry
+    """Handle tariff options for an existing Pstryk config entry."""
 
     async def async_step_init(self, user_input=None):
         if user_input is not None:
