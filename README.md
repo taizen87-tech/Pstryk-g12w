@@ -7,7 +7,7 @@ Niestandardowa integracja Home Assistant analizująca godzinowe zużycie z Pstry
 ## Instalacja przez HACS
 
 1. W HACS wybierz **Integracje → ⋮ → Repozytoria niestandardowe**.
-2. Opublikuj katalog jako repozytorium GitHub, ustaw własny adres w `manifest.json` (`documentation`) i wpisz URL repozytorium w HACS; wybierz kategorię **Integration**.
+2. Opublikuj zawartość tego katalogu jako repozytorium GitHub i wpisz URL repozytorium w HACS; wybierz kategorię **Integration**.
 3. Zainstaluj **Pstryk G12W Energy Analysis** i uruchom ponownie Home Assistant.
 4. W **Ustawienia → Urządzenia i usługi → Dodaj integrację** wyszukaj „Pstryk G12W”.
 5. Wklej klucz API.
