@@ -1,0 +1,8 @@
+{
+  "config": {
+    "step": {"user": {"title": "Pstryk G12W", "description": "Wklej klucz API z aplikacji Pstryk → Konto → Urządzenia i integracje.", "data": {"api_key": "Klucz API"}}},
+    "error": {"invalid_auth": "Nieprawidłowy klucz API."},
+    "abort": {"already_configured": "Ten miernik jest już skonfigurowany."}
+  },
+  "options": {"step": {"init": {"title": "Godziny taryfy", "description": "Przedziały HH:MM-HH:MM, rozdziel przecinkami. Godzina końcowa nie należy do przedziału.", "data": {"weekday_peak": "Szczyt w dni robocze", "weekend_peak": "Szczyt w weekendy", "holidays_offpeak": "Polskie święta w całości poza szczytem"}}}, "error": {"invalid_time_range": "Użyj formatu HH:MM-HH:MM; kilka przedziałów oddziel przecinkami."}}
+}
