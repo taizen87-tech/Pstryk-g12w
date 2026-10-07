@@ -1,0 +1,11 @@
+{
+  "domain": "pstryk_g12w",
+  "name": "Pstryk G12W Energy Analysis",
+  "codeowners": ["@taizen87-tech"],
+  "config_flow": true,
+  "documentation": "https://github.com/taizen87-tech/Pstryk-g12w",
+  "issue_tracker": "https://github.com/taizen87-tech/Pstryk-g12w/issues",
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "version": "1.0.0"
+}
